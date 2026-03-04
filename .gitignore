@@ -21,8 +21,14 @@ env/
 stub/build/
 
 # MinGW toolchain (too large for git, obtain separately - see README)
-toolchain/**
-!toolchain/**/.gitkeep
+toolchain/mingw32/include/*
+!toolchain/mingw32/include/.gitkeep
+toolchain/mingw32/lib/*
+!toolchain/mingw32/lib/.gitkeep
+toolchain/mingw64/include/*
+!toolchain/mingw64/include/.gitkeep
+toolchain/mingw64/lib/*
+!toolchain/mingw64/lib/.gitkeep
 
 # Trained policies
 policies/
