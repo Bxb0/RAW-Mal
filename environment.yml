@@ -1,0 +1,15 @@
+name: rlevade
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - clangxx=20.1.8
+  - llvmdev=20.1.8
+  - lld=20.1.8
+  - pip
+  - pip:
+    - stable_baselines3==2.7.1
+    - numpy==2.2.6
+    - requests==2.32.5
+    - rich==14.2.0
+    - tqdm==4.67.1
