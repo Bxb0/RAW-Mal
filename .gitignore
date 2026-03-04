@@ -17,8 +17,6 @@ env/
 # Conda
 .conda/
 
-# Compiled IR / build artifacts
-stub/build/
 
 # MinGW toolchain (too large for git, obtain separately - see README)
 toolchain/mingw32/include/*
