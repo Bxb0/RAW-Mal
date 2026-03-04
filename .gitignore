@@ -20,8 +20,9 @@ env/
 # Compiled IR / build artifacts
 stub/build/
 
-# MinGW toolchain (301MB binary, obtain separately)
-toolchain/
+# MinGW toolchain (too large for git, obtain separately - see README)
+toolchain/**
+!toolchain/**/.gitkeep
 
 # Trained policies
 policies/
