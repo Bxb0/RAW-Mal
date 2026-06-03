@@ -15,7 +15,7 @@
 
 ```bash
 conda env create -f environment.yml
-conda activate rlevade
+conda activate rawmal
 ```
 
 ### MinGW Toolchain
