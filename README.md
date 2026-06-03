@@ -1,6 +1,6 @@
 # RAW-Mal
 
-**RAW-Mal** is a black-box adversarial evasion framework for Windows malware. It wraps malware in a custom PE loader and applies two complementary transformation channels: semantics-preserving LLVM passes that restructure the loader binary, and reversible byte-level encodings that reshape the embedded payload. A PPO agent learns to select transformations via hard-label detector feedback.
+**RAW-Mal** is a black-box adversarial evasion framework for Windows malware. It wraps malware in a custom PE loader and applies two complementary transformation channels: semantics-preserving LLVM passes that restructure the loader binary, and reversible byte-level encodings that reshape the embedded malware. A PPO agent learns to select transformations via hard-label detector feedback.
 
 
 ## Requirements
@@ -80,7 +80,7 @@ RAW-Mal/
 python train.py --av-type model --av-name malconv --num-envs 16
 
 # Train against a commercial AV engine
-python train.py --av-type engine --av-name ClamAV --num-envs 8
+python train.py --av-type engine --av-name ClamAV --num-envs 16
 
 # Custom dataset and timesteps
 python train.py \
@@ -99,7 +99,7 @@ The trained policy is saved to `policies/<av_name>_ppo.zip`.
 
 ```bash
 # Evaluate a trained policy
-python test.py --av-type model --av-name malconv --max-samples 500
+python test.py --av-type model --av-name malconv --max-samples 2000
 
 # Specify a custom model path and test set
 python test.py \
@@ -107,7 +107,7 @@ python test.py \
     --av-name malconv \
     --model-path policies/malconv_ppo \
     --sample-dir data/test_samples \
-    --max-samples 1000
+    --max-samples 2000
 ```
 
 Adversarial samples are saved to `outputs/test/<av_name>/adversarial/`.
