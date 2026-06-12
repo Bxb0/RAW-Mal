@@ -71,55 +71,6 @@ RAW-Mal/
     └── passes/           # Custom LLVM pass plugins (DelayLoop.so)
 ```
 
-## Usage
-
-### Training
-
-```bash
-# Train against an ML model detector
-python train.py --av-type model --av-name malconv --num-envs 16
-
-# Train against a commercial AV engine
-python train.py --av-type engine --av-name ClamAV --num-envs 16
-
-# Custom dataset and timesteps
-python train.py \
-    --av-type model \
-    --av-name malconv \
-    --sample-dir data/train_samples \
-    --num-envs 16 \
-    --total-timesteps 200000
-```
-
-The trained policy is saved to `policies/<av_name>_ppo.zip`.
-
-**Note:** `n_steps` per environment is automatically computed as `buffer_size // num_envs` (default `buffer_size=2048`), so training dynamics remain consistent regardless of the number of parallel environments.
-
-### Evaluation
-
-```bash
-# Evaluate a trained policy
-python test.py --av-type model --av-name malconv --max-samples 2000
-
-# Specify a custom model path and test set
-python test.py \
-    --av-type model \
-    --av-name malconv \
-    --model-path policies/malconv_ppo \
-    --sample-dir data/test_samples \
-    --max-samples 2000
-```
-
-Adversarial samples are saved to `outputs/test/<av_name>/adversarial/`.
-
-### Data Layout
-
-```
-data/
-├── train_samples/    # PE malware samples for training
-└── test_samples/     # PE malware samples for evaluation
-```
-
 ## License
 
 This project is released for academic research purposes only. Do not use it for malicious purposes.
